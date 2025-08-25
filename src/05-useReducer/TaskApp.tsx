@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 
 import { Plus, Trash2, Check } from 'lucide-react';
 
@@ -15,6 +15,9 @@ export const TasksApp = () => {
 
     const [state, dispatch] = useReducer(taskReducer, getTasksInitialState(),);
 
+    useEffect(() => {
+        localStorage.setItem("tasks-state", JSON.stringify(state));
+    }, [state])
 
 
     const addTodo = () => {
