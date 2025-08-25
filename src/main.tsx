@@ -1,8 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 // import { HooksApp } from './HooksApp'
+// import { MemoHook } from './06-memos/MemoHook'
 import "./index.css"
-import { ScrambleWords } from './05-useReducer/ScrambleWordsReduced'
+import { MemoCounter } from './06-memos/MemoCounter'
+// import { ScrambleWords } from './05-useReducer/ScrambleWordsReduced'
 // import { TrafficLight } from './01-useState/TrafficLight'
 // import { TrafficLightWithEffect } from './02-useEffect/TrafficLightWithEffect'
 // import { TrafficLightWithHook } from './02-useEffect/TrafficLightWithHook'
@@ -12,6 +14,6 @@ import { ScrambleWords } from './05-useReducer/ScrambleWordsReduced'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ScrambleWords />
+    <MemoCounter />
   </StrictMode>,
 )
