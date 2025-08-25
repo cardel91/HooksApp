@@ -23,8 +23,8 @@ export const TrafficLight = () => {
             console.log({ previousState });
             return color;
 
-        })
-    }
+        });
+    };
 
 
     return (
