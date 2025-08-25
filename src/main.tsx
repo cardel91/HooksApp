@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 // import { HooksApp } from './HooksApp'
 import "./index.css"
-import { ScrambleWords } from './05-useReducer/ScrambleWords'
+import { ScrambleWords } from './05-useReducer/ScrambleWordsReduced'
 // import { TrafficLight } from './01-useState/TrafficLight'
 // import { TrafficLightWithEffect } from './02-useEffect/TrafficLightWithEffect'
 // import { TrafficLightWithHook } from './02-useEffect/TrafficLightWithHook'
