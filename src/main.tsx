@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 // import { HooksApp } from './HooksApp'
 // import { MemoHook } from './06-memos/MemoHook'
 import "./index.css"
-import { MemoCounter } from './06-memos/MemoCounter'
+// import { MemoCounter } from './06-memos/MemoCounter'
+import { InstogramApp } from './07-useOptimistic/InstogramApp'
 // import { ScrambleWords } from './05-useReducer/ScrambleWordsReduced'
 // import { TrafficLight } from './01-useState/TrafficLight'
 // import { TrafficLightWithEffect } from './02-useEffect/TrafficLightWithEffect'
@@ -14,6 +15,6 @@ import { MemoCounter } from './06-memos/MemoCounter'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MemoCounter />
+    <InstogramApp />
   </StrictMode>,
 )
