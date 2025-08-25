@@ -1,4 +1,7 @@
-import { useOptimistic, useState } from 'react';
+import { useOptimistic, useState, useTransition } from 'react';
+import { toast } from 'sonner';
+
+
 
 interface Comment {
     id: number;
@@ -6,15 +9,21 @@ interface Comment {
     optimistic?: boolean;
 }
 
+let lastId = 2;
+
 export const InstogramApp = () => {
+
+    const [isPending, startTransition] = useTransition();
+
     const [comments, setComments] = useState<Comment[]>([
         { id: 1, text: '¡Gran foto!' },
         { id: 2, text: 'Me encanta 🧡' },
     ]);
 
     const [optimisticComments, addOptimisticComment] = useOptimistic(comments, (currentComments: Comment[], newComment: string) => {
+        lastId++;
         return [...currentComments, {
-            id: new Date().getTime(),
+            id: lastId,
             text: newComment,
             optimistic: true
         }];
@@ -26,13 +35,34 @@ export const InstogramApp = () => {
 
         addOptimisticComment(msg);
 
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        startTransition(async () => {
+            // peticion
+            await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        console.log("Mensaje guardado");
-        setComments(prev => [...prev, {
-            id: new Date().getTime(),
-            text: msg,
-        }])
+            // console.log("Mensaje guardado");
+            // setComments(prev => [...prev, {
+            //     id: new Date().getTime(),
+            //     text: msg,
+            // }])
+
+
+            // rollback
+
+            setComments(prev => prev);
+            toast.error("Error", {
+                description: "Intente nuevamente",
+                duration: 0,
+                position: "top-right",
+                // onAutoClose: () => { toast.dismiss() },
+                action: {
+                    label: 'Cerrar',
+                    onClick: () => toast.dismiss(),
+
+                }
+            });
+        })
+
+
     };
 
     return (
@@ -78,8 +108,8 @@ export const InstogramApp = () => {
                 />
                 <button
                     type="submit"
-                    disabled={false}
-                    className="bg-blue-500 text-white p-2 rounded-md w-full"
+                    disabled={isPending}
+                    className={`${(isPending) ? "bg-gray-500 cursor-wait" : "bg-blue-500 cursor-pointer"} text-white p-2 rounded-md w-full`}
                 >
                     Enviar
                 </button>
