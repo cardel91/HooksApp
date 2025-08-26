@@ -1,4 +1,4 @@
-import { createContext, useState, type PropsWithChildren } from "react"
+import { createContext, useEffect, useState, type PropsWithChildren } from "react"
 import { users, type User } from "../data/user.data";
 
 // interface UserContextProps {
@@ -39,6 +39,7 @@ export const UserContextProvider = ({ children }: PropsWithChildren) => {
 
         setUser(user);
         setAuthStatus("auth");
+        localStorage.setItem("userId", userId.toString());
 
         return true;
     }
@@ -46,7 +47,15 @@ export const UserContextProvider = ({ children }: PropsWithChildren) => {
     const handleLogout = () => {
         setUser(null);
         setAuthStatus("not auth");
+        localStorage.removeItem("userId");
     }
+
+    useEffect(() => {
+        const storedUserId = localStorage.getItem("userId");
+        if (storedUserId)
+            handleLogin(+storedUserId)
+    }, [])
+
 
     return <UserContext value={
         {
