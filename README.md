@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🪝 HooksApp
 
-Currently, two official plugins are available:
+A modern React project built as part of sections 9–12 of the [React: De cero a experto ( Hooks y MERN )](https://www.udemy.com/course/react-cero-experto) course by **Fernando Herrera**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This app explores advanced concepts in React, including state management, React hooks, transitions, async APIs, validation, and routing — all developed using **TypeScript**, **TailwindCSS**, and **ShadCN/UI** for styling.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features & Hooks Used
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* 🔁 **useState** – Manage local state across components
+* 🔄 **useEffect** – Handle side effects and transitions
+* 🧠 **Custom Hooks** – e.g., `useTrafficLight` to abstract reusable logic
+* 🧾 **useRef** – Persist values across renders without re-rendering
+* ⚙️ **useReducer** – Complex state logic (e.g. word game, reducer pattern)
+* 💾 **LocalStorage Integration** – Persistent state with reducer
+* ✅ **Zod Validation** – Form and data validation with schema enforcement
+* 🧩 **useMemo** – Performance optimization with memoized values
+* ✨ **useOptimistic** – Optimistic UI updates
+* ⏳ **useTransition & Suspense** – Handle UI loading states gracefully
+* 🌐 **React Router (Data APIs)** – Advanced routing with data loading
+* 📦 **Context API** – Shared state management (e.g., user session)
+* 🔐 **Private Routes** – Conditional rendering based on auth context
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧩 UI & Libraries
+
+* 🎨 **TailwindCSS** – Utility-first CSS framework
+* 🧱 **Shadcn/UI** – Prebuilt, accessible component library
+* 🔔 **Sonner** – Toast notifications
+* ✅ **Zod** – Runtime schema validation for forms and APIs
+
+---
+
+## 📚 Course Context
+
+This project is built as part of the **Udemy course by Fernando Herrera**, specifically covering:
+
+* **Section 9:** React Hooks Fundamentals
+* **Section 10:** Custom Hooks & Reducer Patterns
+* **Section 11:** useMemo, useCallback, and Optimistic UI
+* **Section 12:** Routing, Context, Suspense, and Authentication
+
+---
+
+## 📂 Project Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/hooksapp.git
+cd hooksapp
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 Learnings
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* Mastery of core and advanced hooks in React
+* Handling global state using `useContext` and `useReducer`
+* Understanding asynchronous transitions and performance optimization
+* Implementing protected routes and user authentication flow
+* Clean code with TypeScript and scalable UI architecture
+
+---
+
+## 📸 Screenshots
+
+> Add some screenshots or GIFs here showing key UI interactions, transitions, or animations.
+
+---
+
+## 🧑‍💻 Author
+
+**Carlos Delgadillo**
+Built during my learning journey through the React expert course by Fernando Herrera.
+
+---
+
+## 📝 License
+
+This project is part of a personal learning path and follows the guidelines of the referenced Udemy course. Not for commercial use unless otherwise licensed.

@@ -11,12 +11,13 @@ interface UserContextProps {
     // state
     authStatus: AuthStatus;
     user: User | null;
-
+    isAuth: boolean;
     // methods
     login: (userId: number) => boolean;
     logout: () => void;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const UserContext = createContext({} as UserContextProps);
 
 /* HIGHER ORDER COMPONENT */
@@ -54,6 +55,7 @@ export const UserContextProvider = ({ children }: PropsWithChildren) => {
         const storedUserId = localStorage.getItem("userId");
         if (storedUserId)
             handleLogin(+storedUserId)
+        setAuthStatus("not auth")
     }, [])
 
 
@@ -61,6 +63,7 @@ export const UserContextProvider = ({ children }: PropsWithChildren) => {
         {
             authStatus,
             user,
+            isAuth: authStatus === "auth",
             login: handleLogin,
             logout: handleLogout
         }
