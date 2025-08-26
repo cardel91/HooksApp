@@ -6,8 +6,9 @@ import "./index.css"
 // import { MemoCounter } from './06-memos/MemoCounter'
 // import { InstogramApp } from './07-useOptimistic/InstogramApp'
 import { Toaster } from 'sonner'
-import { ClientInformation } from './08-useSuspense/ClientInformation'
-import { getUserAction } from './08-useSuspense/get-user.action'
+// import { ClientInformation } from './08-useSuspense/ClientInformation'
+// import { getUserAction } from './08-useSuspense/get-user.action'
+import { ProfessionalApp } from './09-useContext/ProfessionalApp'
 // import { ScrambleWords } from './05-useReducer/ScrambleWordsReduced'
 // import { TrafficLight } from './01-useState/TrafficLight'
 // import { TrafficLightWithEffect } from './02-useEffect/TrafficLightWithEffect'
@@ -19,8 +20,10 @@ import { getUserAction } from './08-useSuspense/get-user.action'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Toaster />
-    <Suspense fallback={<h1>Cargando...</h1>}>
+    {/* <Suspense fallback={<h1>Cargando...</h1>}>
       <ClientInformation getUser={getUserAction(100)} />
-    </Suspense>
+    </Suspense> */}
+
+    <ProfessionalApp />
   </StrictMode>
 )
